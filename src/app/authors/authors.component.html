@@ -1,0 +1,34 @@
+<table class ="table table-striped">
+    <tr>
+        <th>№ п/п</th>
+        <th (click)="sort('surname')">Фамилия автора</th>
+        <th (click)="sort('name')">Имя автора</th>
+        <th (click)="sort('books')">Книг в базе</th>
+        <th>Редактировать</th>
+        <th>Удалить</th>
+        <th>Детали</th>
+    </tr>
+    <tr *ngFor="let author of authors; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{author.surname}}</td>
+        <td>{{author.name}}</td>
+        <td>{{author.books.length}}</td>
+        <td><button class="btn btn-success" (click)="edit(author)">Редактировать</button></td>
+        <td><button class="btn btn-success" (click)="delete(author)">Удалить</button></td>
+        <td><button class="btn btn-success" (click)="details(author)">Детали</button></td>
+    </tr>
+</table>
+<button class="btn btn-success btn-block" (click)="addAuthor()">Добавить автора</button>
+<button class="btn btn-success btn-block" (click)="show()" [ngClass]="{invis: visible}">Искать книгу</button>
+<div [ngClass]="{invisible: visibility}" class="input-group mt-3">
+    <input type="text" name="book" id="book" class="form-control" [(ngModel)]="bookTitle" >
+    <div class="input-group-append">
+    <button class="btn btn-success" (click)="searhBook()">Начать поиск</button>
+    </div>
+</div>
+
+<div [ngClass]="{hiden: vis}"> 
+    <p>{{book.title}}</p>
+    <p>{{book.pages}} страниц</p>
+    <p>{{book.genre}}</p>
+</div>

@@ -1,0 +1,93 @@
+<div class="container" *ngIf="authorForm">
+	<form [formGroup]="authorForm" (ngSubmit)="onSubmit(authorForm)">
+		<div class="form-group">
+            <label for="id">Id:</label>
+            <input type="text" id="id" class="form-control" formControlName="id"/>
+            <div *ngIf="checkError('id' ,'required')" class="alert alert-danger">
+				Обязательное поле
+			</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="surname">Фамилия:</label>
+            <input type="text" id="surname" class="form-control" formControlName='surname'/>
+            <div *ngIf="checkError('surname' ,'required')" class="alert alert-danger">
+				Обязательное поле
+			</div>
+        </div>
+        <div class="form-group">
+            <label for="name">Имя:</label> 
+            <input type="text" id="name" class="form-control" formControlName="name"/>
+            <div *ngIf="checkError('name' ,'required')" class="alert alert-danger">
+				Обязательное поле
+			</div>
+        </div>
+
+        <div class="form-group">
+            <label for="patronymic">Отчество:</label> 
+            <input type="text" id="patronymic" class="form-control" formControlName="patronymic"/>
+        </div>
+
+        <div class="form-group">
+            <label for="birth">Дата рождения:</label> 
+            <input type="text" id="birth" class="form-control" formControlName="birth"/>
+            <div *ngIf="checkError('birth' ,'required')" class="alert alert-danger">
+				Обязательное поле.
+			</div>
+        </div>
+        <h5> Книги</h5>
+        <fieldset formArrayName="books" class="mb-4">
+            <div *ngFor="let book of books.controls; let i=index" class="container" >
+                <div [formGroupName]="i" class="container">
+                    <div class="form-group">
+                        <label for="idBook">Id:</label>
+                        <input type="text" id="idBook" class="form-control" formControlName="id" >
+                        <div *ngIf="checkError('id' ,'required')" class="alert alert-danger">
+                            Обязательное поле
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Название книги:</label>
+                        <input type="text" id="title" class="form-control" formControlName="title" >
+                        <div *ngIf="checkError('id' ,'required')" class="alert alert-danger">
+                            Обязательное поле
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pages">Количество страниц:</label>
+                        <input type="number" id="pages" class="form-control" formControlName="pages" >
+                        <div *ngIf="checkError('id' ,'required')" class="alert alert-danger">
+                            Обязательное поле
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Жанр:</label>
+                        <select  id="genre" class="form-control" formControlName="genre">
+                            <option *ngFor="let g of genres">{{g.style}}</option>
+                        </select>
+                        <div *ngIf="checkError('id' ,'required')" class="alert alert-danger">
+                            Обязательное поле
+                        </div>
+                    </div>
+
+                    <div *ngIf="errorMessage" class="alert alert-danger">
+                        {{errorMessage}}
+                    </div>
+
+                    <input type="button" class="btn btn-info btn-group mr-4 mb-4" (click)="deleteBook(i)" value="Удалить" />
+                    <input type="submit" class="btn btn-success mb-4" value="Сохранить" [disabled]="books.invalid" />
+                </div>
+            </div>
+        </fieldset>
+           <input type="button" class="btn btn-success mb-4 btn-block" (click)="addBook()" value="Добавить книгу" />
+            <input type="button" class="btn btn-info mr-4" (click)="goBack()" value="Назад" />
+            <input type="submit" class="btn btn-success" value="Сохранить" [disabled]="authorForm.invalid" />
+    </form>
+</div>
+
+
+
+ 
+
