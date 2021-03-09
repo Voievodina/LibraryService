@@ -1,10 +1,12 @@
-export class Author{
+import { Book } from "./book";
+
+export class Author {
     constructor(
         public id: string,
         public surname: string,
         public name: string,
         public birth: Date,
-        public patronymic?:string,
-        public books?: Array<Object>,
-    ){}
+        public patronymic?: string,
+        public books?: Array<Book>,
+    ) { }
 }

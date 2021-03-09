@@ -1,10 +1,9 @@
 <div class="container mt-5">
-<div class="input-group">
-    <input type="text" class="form-control" id="genre" [(ngModel)]="genre.style" >
-    <div class="input-group-append">
-        <input type="button" (click)="addGenre(genre)" class="btn btn-success" value="Сохранить" />
+    <div class="input-group">
+        <input type="text" class="form-control" id="genre" [(ngModel)]="genre.style">
+        <div class="input-group-append">
+            <input type="button" (click)="addGenre(genre)" class="btn btn-success" value="Сохранить" />
+        </div>
     </div>
-</div>
-
-<input type="button" class="btn btn-success btn-lg mt-4" (click)="goBack()" value="Назад" />
+    <input type="button" class="btn btn-success btn-lg mt-4" (click)="goBack()" value="Назад" />
 </div>

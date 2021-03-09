@@ -1,9 +1,9 @@
-<table class ="table table-striped">
+<table class="table table-striped">
     <tr>
         <th>№ п/п</th>
-        <th (click)="sort('surname')">Фамилия автора</th>
-        <th (click)="sort('name')">Имя автора</th>
-        <th (click)="sort('books')">Книг в базе</th>
+        <th class="sort" (click)="sort('surname')">Фамилия автора</th>
+        <th class="sort" (click)="sort('name')">Имя автора</th>
+        <th class="sort" (click)="sort('books')">Книг в базе</th>
         <th>Редактировать</th>
         <th>Удалить</th>
         <th>Детали</th>
@@ -21,13 +21,13 @@
 <button class="btn btn-success btn-block" (click)="addAuthor()">Добавить автора</button>
 <button class="btn btn-success btn-block" (click)="show()" [ngClass]="{invis: visible}">Искать книгу</button>
 <div [ngClass]="{invisible: visibility}" class="input-group mt-3">
-    <input type="text" name="book" id="book" class="form-control" [(ngModel)]="bookTitle" >
+    <input type="text" name="book" id="book" class="form-control" [(ngModel)]="bookTitle">
     <div class="input-group-append">
-    <button class="btn btn-success" (click)="searhBook()">Начать поиск</button>
+        <button class="btn btn-success" (click)="searhBook()">Начать поиск</button>
     </div>
 </div>
 
-<div [ngClass]="{hiden: vis}"> 
+<div [ngClass]="{hiden: vis}">
     <p>{{book.title}}</p>
     <p>{{book.pages}} страниц</p>
     <p>{{book.genre}}</p>

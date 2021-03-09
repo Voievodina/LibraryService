@@ -9,6 +9,11 @@ input[type="checkbox"] {
 .hiden{
     display: none;
 }
+
 .invisible{
     display:none;
+}
+
+.sort::after{
+    content: "▼";
 }

@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { GenresComponent } from './genres/genres.component';
-import {BackendService} from "./shared/backend.service";
+import { BackendService } from "./shared/backend.service";
 import { AuthorsService } from './shared/authors.service';
 import { AuthorDetailsComponent } from './authors/author-details/author-details.component';
 import { BooksService } from './shared/books.service';
@@ -20,7 +20,7 @@ import { GenresEditComponent } from './genres/genres-edit/genres-edit.component'
 
 @NgModule({
   declarations: [
-    AppComponent, AuthorsComponent, GenresComponent,AuthorEditComponent, AuthorDetailsComponent,GenresEditComponent
+    AppComponent, AuthorsComponent, GenresComponent, AuthorEditComponent, AuthorDetailsComponent, GenresEditComponent
   ],
   imports: [
     BrowserModule,

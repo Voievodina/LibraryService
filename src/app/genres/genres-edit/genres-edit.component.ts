@@ -1,34 +1,33 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Genre } from "src/app/shared/genre";
-import {GenresService} from "src/app/shared/genres.service";
+import { GenresService } from "src/app/shared/genres.service";
 
 @Component({
-    selector:"genres-edit",
-    templateUrl:"genres-edit.component.html"
+    selector: "genres-edit",
+    templateUrl: "genres-edit.component.html"
 })
 
-export class GenresEditComponent implements OnInit{
-    genre:Genre;
+export class GenresEditComponent implements OnInit {
+    genre: Genre;
 
-    constructor(private ActivatedRoute:ActivatedRoute, private GenresService:GenresService, private Router:Router){}
-    ngOnInit(){
+    constructor(private ActivatedRoute: ActivatedRoute, private GenresService: GenresService, private Router: Router) { }
+
+    ngOnInit() {
         this.getGenreFromRoute();
     }
 
-    getGenreFromRoute(){
-        let id=this.ActivatedRoute.snapshot.params['id'];
-        this.GenresService.getGenre(id).subscribe(res=>{this.genre=res});
+    getGenreFromRoute() {
+        let id = this.ActivatedRoute.snapshot.params['id'];
+        this.GenresService.getGenre(id).subscribe(res => { this.genre = res });
     }
 
     addGenre(genre) {
-       
-        this.GenresService.putGenre(genre).subscribe(_=>console.log(5));
+        this.GenresService.putGenre(genre).subscribe();
         this.goBack();
     }
 
-    goBack(){
-        console.log(5)
+    goBack() {
         this.Router.navigate(["/genres"]);
     }
 }

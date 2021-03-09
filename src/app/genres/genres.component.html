@@ -1,23 +1,24 @@
- <div class="container">
- <table class ="table">
-    <tr>
-        <th (click)="sort()">Название жанра</th>
-        <th>Добавить жанр</th>
-        <th>Удалить</th>
-    </tr>
-    <tr *ngFor="let g of genres">
-        <td>{{g.style}}</td>
-        <td><button class="btn btn-success" (click)="editGenre(g)">Редактировать</button></td>
-        <td><button class="btn btn-success" (click)="deleteGenre(g)">Удалить</button></td>
-    </tr>
-</table>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th class="sort" (click)="sort()">Название жанра</th>
+            <th>Добавить жанр</th>
+            <th>Удалить</th>
+        </tr>
+        <tr *ngFor="let g of genres">
+            <td>{{g.style}}</td>
+            <td><button class="btn btn-success" (click)="editGenre(g)">Редактировать</button></td>
+            <td><button class="btn btn-success" (click)="deleteGenre(g)">Удалить</button></td>
+        </tr>
+    </table>
 
-<input type="button" id="add" (click)="visible()" class="btn btn-success btn-block mb-4" [ngClass]="{hiden:vis}" value="Добавить жанр">
-<div class="input-group mt-3 mb-4">
-    <input type="text"  [(ngModel)]="style" class="form-control" [ngClass]="{invisible: visibility}">
-    <div class="input-group-append">
-        <button class="add" class="btn btn-success" (click)="addGenre(style)"[ngClass]="{visual: visable}">Сохранить</button>
+    <input type="button" id="add" (click)="visible()" class="btn btn-success btn-block mb-4" [ngClass]="{hiden:vis}"
+        value="Добавить жанр">
+    <div class="input-group mt-3 mb-4">
+        <input type="text" [(ngModel)]="style" class="form-control" [ngClass]="{invisible: visibility}">
+        <div class="input-group-append">
+            <button class="add" class="btn btn-success" (click)="addGenre(style)" [ngClass]="{visual: visable}">Сохранить</button>
+        </div>
     </div>
-</div>
-<button (click)="goBack()" class="btn btn-success btn-lg">Назад</button>
+    <button (click)="goBack()" class="btn btn-success btn-lg">Назад</button>
 </div>

@@ -1,6 +1,7 @@
 tr:hover{
     background-color: green;
 }
+
 .invisible{
     display:none;
 }
@@ -8,7 +9,12 @@ tr:hover{
 .invis{
     display:none;
 }
+
 .hiden{
     display:none;
+}
+
+.sort::after{
+    content: "▼";
 }
 
