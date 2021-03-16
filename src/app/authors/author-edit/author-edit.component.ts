@@ -16,7 +16,6 @@ import { Genre } from "src/app/shared/genre";
 
 export class AuthorEditComponent implements OnInit {
     author: Author;
-    authorsCollection: Author[];
     errorMessage: string;
     authorForm: FormGroup;
     collections: Book[];
