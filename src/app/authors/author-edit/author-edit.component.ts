@@ -16,6 +16,7 @@ import { Genre } from "src/app/shared/genre";
 
 export class AuthorEditComponent implements OnInit {
     author: Author;
+    authorsCollection: Author[];
     errorMessage: string;
     authorForm: FormGroup;
     collections: Book[];
@@ -69,8 +70,7 @@ export class AuthorEditComponent implements OnInit {
         }
         else {
             this.collections = [];
-            this.collections.push(new Book(null, null, null, null))
-                ;
+            this.collections.push(new Book(null, null, null, null));
             let bookForm = this.newBookForm();
             (this.authorForm.get("books") as FormArray).push(bookForm);
         }
@@ -79,7 +79,6 @@ export class AuthorEditComponent implements OnInit {
 
     private buildForm() {
         this.authorForm = this.fb.group({
-            id: ["", Validators.required],
             surname: ["", Validators.required],
             name: ["", Validators.required],
             birth: ["", Validators.required],
@@ -94,7 +93,7 @@ export class AuthorEditComponent implements OnInit {
 
     private newBookForm(): FormGroup {
         return this.fb.group({
-            id: ["", Validators.required],
+            id:[this.books.length],
             title: ["", Validators.required],
             pages: ["", Validators.required],
             genre: ["", Validators.required],

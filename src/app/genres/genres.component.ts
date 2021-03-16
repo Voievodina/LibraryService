@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 })
 
 export class GenresComponent implements OnInit {
-    genres;
+    genres: Genre[];
     genre: Genre;
     visibility: boolean = true;
     vis: boolean = false;
@@ -27,7 +27,7 @@ export class GenresComponent implements OnInit {
     }
 
     addGenre(style) {
-        let newGenre = new Genre(this.genres.lenght + 1, style)
+        let newGenre = new Genre(this.genres.length, style)
         this.GenresService.postGenre(newGenre).subscribe();
         this.getGenres();
         this.visable = !this.visable;

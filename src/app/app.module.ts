@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -15,7 +15,9 @@ import { BooksService } from './shared/books.service';
 import { AuthorEditComponent } from './authors/author-edit/author-edit.component';
 import { GenresService } from './shared/genres.service';
 import { GenresEditComponent } from './genres/genres-edit/genres-edit.component';
-
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+registerLocaleData(localeRu, 'ru');
 
 
 @NgModule({
@@ -30,7 +32,7 @@ import { GenresEditComponent } from './genres/genres-edit/genres-edit.component'
     HttpClientModule,
     InMemoryWebApiModule.forRoot(BackendService)
   ],
-  providers: [AuthorsService, BooksService, GenresService],
+  providers: [AuthorsService, BooksService, GenresService, { provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

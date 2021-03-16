@@ -2,9 +2,10 @@
     <p>Фамилия: <span>{{author.surname}}</span></p>
     <p>Имя: <span>{{author.name}}</span></p>
     <p>Отчество: <span>{{author.patronymic}}</span></p>
-    <p>Дата рождения: <span>{{author.birth}}</span></p>
+    <p>Дата рождения: <span>{{author.birth|date:'longDate' }}</span></p>
     <p>Книги:</p>
     <div class="books mb-2" *ngFor="let book of books">
+        
         <p>{{book.title}}</p>
         <p>{{book.pages}} страниц</p>
         <p>{{book.genre}}</p>
